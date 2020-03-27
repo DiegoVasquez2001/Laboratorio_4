@@ -204,7 +204,7 @@ public class Mantenimiento_Conceptos extends javax.swing.JFrame {
     private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/planilla_db", "root", "informaticdv2016");
-            PreparedStatement pst = cn.prepareStatement("insert into Concepto values(?,?,?,?)");
+            PreparedStatement pst = cn.prepareStatement("insert into Concepto_19543 values(?,?,?,?)");
             pst.setString(1, TxtCC.getText().trim());
             pst.setString(2, TxtNC.getText().trim());
             pst.setString(3, TxtEC.getText().trim());
@@ -224,7 +224,7 @@ public class Mantenimiento_Conceptos extends javax.swing.JFrame {
     private void btnBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBajaActionPerformed
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/planilla_db", "root", "informaticdv2016");
-            PreparedStatement pst = cn.prepareStatement("delete from Concepto where codigo_concepto = ?");
+            PreparedStatement pst = cn.prepareStatement("delete from Concepto_19543 where codigo_concepto = ?");
             pst.setString(1, TxtBCC.getText().trim());
             pst.executeUpdate();
             TxtCC.setText("");
@@ -243,12 +243,12 @@ public class Mantenimiento_Conceptos extends javax.swing.JFrame {
             String ID = TxtBCC.getText().trim();
             
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/planilla_db", "root", "informaticdv2016");
-            PreparedStatement pst = cn.prepareStatement("update Concepto set codigo_concepto = ?, nombre_concepto = ?, efecto_concepto = ?, estatus_concepto = ? where codigo_concepto = " + ID);
+            PreparedStatement pst = cn.prepareStatement("update Concepto_19543 set codigo_concepto = ?, nombre_concepto = ?, efecto_concepto = ?, estatus_concepto = ? where codigo_concepto = " + ID);
             
             pst.setString(1, TxtCC.getText().trim());
             pst.setString(2, TxtNC.getText().trim());
             pst.setString(3, TxtEC.getText().trim());
-            pst.setString(3, TxtSC.getText().trim());
+            pst.setString(4, TxtSC.getText().trim());
             pst.executeUpdate();
            JOptionPane.showMessageDialog(null, "CONCEPTO MODIFICADO CON EXITO");
             
@@ -260,7 +260,7 @@ public class Mantenimiento_Conceptos extends javax.swing.JFrame {
     private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/planilla_db", "root", "informaticdv2016");
-            PreparedStatement pst = cn.prepareStatement("select * from Concepto where codigo_concepto = ?");
+            PreparedStatement pst = cn.prepareStatement("select * from Concepto_19543 where codigo_concepto = ?");
             pst.setString(1, TxtBCC.getText().trim());
             ResultSet rs = pst.executeQuery();
             if(rs.next()){
