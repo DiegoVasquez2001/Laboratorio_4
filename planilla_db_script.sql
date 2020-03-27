@@ -42,3 +42,14 @@ FKcodigo_departamento varchar(5) not null,
 sueldo_empleado float(10,2) not null,
 estatus_empleado varchar(1) not null
 )engine=InnoDB default charset=latin1;
+
+ALTER TABLE Empleado_19543
+ADD FOREIGN KEY (FKcodigo_puesto) REFERENCES Puesto_19543(codigo_puesto);
+
+ALTER TABLE Empleado_19543
+ADD FOREIGN KEY (FKcodigo_departamento) REFERENCES Departamento_19543(codigo_departamento);
+
+ALTER TABLE NominasD_19543
+ADD FOREIGN KEY (FK_CodigoNomina) REFERENCES nominae_19543(codigo_nomina),
+ADD FOREIGN KEY (Fk_CodigoEmpleado) REFERENCES empleado_19543(codigo_empleado),
+ADD FOREIGN KEY (FK_CodigoConcepto) REFERENCES concepto_19543(codigo_concepto);
